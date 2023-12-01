@@ -1,27 +1,21 @@
-import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import s from '../Filter/Filter.module.css';
-
-export class Filter extends Component {
-  render() {
-    const { filter, addFilter } = this.props;
+const Filter = ({id, hendleInputFilter}) => {
     return (
-      <div className={s.filter}>
-        <input
-          type="text"
-          name="filter"
-          className={s.filter__input}
-          value={filter}
-          onChange={addFilter}
-          placeholder="Enter name"
-        />
-      </div>
-    );
-  }
+        <>
+            <h3>Find contats by name</h3>
+            <input
+                type="text"
+                name="filter"
+                id={id}
+                onChange = {hendleInputFilter}
+            />
+        </>
+    )
 }
 
+export default Filter;
+
 Filter.propTypes = {
-  filter: PropTypes.string.isRequired,
-  addFilter: PropTypes.func,
+  hendleInputFilter: PropTypes.func.isRequired,
 };
